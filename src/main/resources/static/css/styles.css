@@ -1,0 +1,368 @@
+/* styles.css */
+
+/* 공통 스타일 */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+}
+
+/* 헤더 스타일 */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #343a40;
+    color: white;
+}
+
+header h1 {
+    margin: 0;
+}
+
+.button-container {
+    margin-left: auto;
+}
+
+.btn-create {
+    text-decoration: none;
+    background-color: #28a745;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.btn-create:hover {
+    background-color: #218838;
+}
+
+/* 테이블 스타일 */
+table {
+    width: 90%;
+    margin: 1rem auto;
+    border-collapse: collapse;
+    background-color: white;
+    border: 1px solid #dee2e6;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 0.75rem;
+    text-align: left;
+    border: 1px solid #dee2e6;
+}
+
+th {
+    background-color: #007bff;
+    color: white;
+}
+
+td {
+    color: #495057;
+}
+
+a.btn-view {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+}
+
+a.btn-view:hover {
+    text-decoration: underline;
+}
+
+/* 페이지네이션 스타일 */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0;
+}
+
+.pagination .btn {
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    margin: 0 0.25rem;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    display: inline-block;
+}
+
+.pagination .btn:hover {
+    background-color: #0056b3;
+}
+
+/* 폼 스타일 */
+.diary-form {
+    width: 90%;
+    margin: 2rem auto;
+    padding: 1rem;
+    background-color: white;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+input[type="text"], textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+textarea {
+    resize: none;
+}
+
+.form-actions {
+    text-align: right;
+}
+
+
+
+/* 일기 상세보기 스타일 */
+.diary-detail {
+    width: 80%;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: white;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.info {
+    font-size: 1rem;
+    color: #6c757d;
+    margin-bottom: 1rem;
+}
+
+p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+/* 댓글 목록 스타일 */
+.comments {
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: #f1f1f1;
+    border-radius: 8px;
+}
+
+.comment {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background-color: white;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+}
+
+.comment-author {
+    font-weight: bold;
+}
+
+.comment-content {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+}
+
+.comment-time {
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin-top: 0.5rem;
+}
+
+/* 댓글 작성 폼 스타일 */
+.comment-form {
+    margin-top: 2rem;
+}
+
+textarea {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+.btn-create {
+    background-color: #28a745;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.btn-create:hover {
+    background-color: #218838;
+}
+
+/* 수정 및 삭제 버튼 */
+.actions {
+    margin-top: 2rem;
+}
+
+.btn-edit, .btn-delete {
+    background-color: #007bff;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    margin-right: 1rem;
+    text-decoration: none;
+}
+
+.btn-edit:hover, .btn-delete:hover {
+    background-color: #0056b3;
+}
+
+
+/* 일기 수정 폼 스타일 */
+.diary-edit {
+    width: 60%;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: white;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+form div {
+    margin-bottom: 1rem;
+}
+
+label {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+
+/* 기본 스타일 */
+.actions {
+    margin-top: 20px;
+}
+
+.btn-edit, .btn-delete {
+    padding: 10px 20px;
+    border: none;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* 수정 버튼 스타일 */
+.btn-edit {
+    background-color: #4CAF50; /* 녹색 */
+    color: white;
+}
+
+.btn-edit:hover {
+    background-color: #45a049; /* 수정 시 마우스 오버 효과 */
+}
+
+/* 삭제 버튼 스타일 */
+.btn-delete {
+    background-color: #f44336; /* 빨간색 */
+    color: white;
+}
+
+.btn-delete:hover {
+    background-color: #e53935; /* 삭제 시 마우스 오버 효과 */
+}
+
+/* 버튼 위치 조정 (옵션) */
+.actions a {
+    margin-right: 10px;
+}
+
+
+/* 기본 스타일 */
+.actions {
+    margin-top: 20px;
+}
+
+.btn-edit, .btn-delete, .btn-submit {
+    padding: 10px 20px;
+    border: none;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* 수정 버튼 스타일 */
+.edit {
+    background-color: #4CAF50; /* 녹색 */
+    color: white;
+}
+
+.edit:hover {
+    background-color: #45a049; /* 수정 시 마우스 오버 효과 */
+}
+
+/* 삭제 버튼 스타일 */
+.delete {
+    background-color: #f44336; /* 빨간색 */
+    color: white;
+}
+
+.delete:hover {
+    background-color: #e53935; /* 삭제 시 마우스 오버 효과 */
+}
+
+/* 버튼 위치 조정 (옵션) */
+.actions a {
+    margin-right: 10px;
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>일기 상세 보기</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+</head>
+<body>
+<header>
+    <h1>일기 상세 보기</h1>
+</header>
+
+<main>
+    <div class="diary-detail">
+        <!-- 일기 제목과 정보 -->
+        <h2 th:text="${diary.title}">일기 제목</h2>
+        <p class="info">
+            <span th:text="'작성자: ' + ${diary.username}"></span>
+            <span th:text="${diary.createdAt != null ? #temporals.format(diary.createdAt, 'yyyy-MM-dd HH:mm') : '정보 없음'}"></span>
+        </p>
+
+        <p th:text="${diary.content}">일기 내용</p>
+
+        <!-- 댓글 목록 -->
+        <section class="comments">
+            <h3>댓글</h3>
+            <div th:each="comment : ${diary.commentList}">
+                <div class="comment">
+                    <p class="comment-author" th:text="${comment.username}"></p>
+                    <p class="comment-content" th:text="${comment.content}"></p>
+                    <p class="comment-time" th:text="${#temporals.format(comment.createdAt, 'yyyy-MM-dd HH:mm:ss')}"></p>
+
+                    <!-- 댓글 수정 및 삭제 버튼 -->
+                    <div th:if="${comment.username == currentUser.username}" class="comment-actions">
+                        <a th:href="@{/diary/{diaryId}/comment/{commentId}/edit(diaryId=${diary.id}, commentId=${comment.id})}" class="comment-edit">수정</a>
+                        <a th:href="@{/diary/{diaryId}/comment/{commentId}/delete(diaryId=${diary.id}, commentId=${comment.id})}" class="comment-delete">삭제</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 댓글 작성 폼 -->
+        <section class="comment-form">
+            <h3>댓글 작성</h3>
+            <form th:action="@{/diary/{id}/comment/create(id=${diary.id})}" method="post">
+                <textarea name="content" rows="4" required placeholder="댓글을 작성해주세요..."></textarea>
+                <button type="submit" class="btn-create">댓글 작성</button>
+            </form>
+        </section>
+
+        <!-- 수정 및 삭제 버튼 (작성자만 가능) -->
+        <div class="actions">
+            <a th:if="${diary.username == currentUser.username}"
+               th:href="@{/diary/{id}/edit(id=${diary.id})}" class="btn-edit">수정</a>
+        </div>
+    </div>
+</main>
+</body>
+</html>

@@ -1,6 +1,8 @@
 package kr.seula.javatest.domain.diary.dto;
 
 import kr.seula.javatest.domain.comment.dto.Comment;
+
+import java.time.LocalDateTime;
 import java.util.List;
 
 public record DiaryDto(
@@ -8,6 +10,6 @@ public record DiaryDto(
         String title,
         String content,
         String username,
-        String createAt,
+        LocalDateTime createdAt,
         List<Comment> commentList
 ) {}

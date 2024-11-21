@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>일기 목록</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+</head>
+<body>
+<header>
+    <h1>일기 목록</h1>
+    <div class="button-container">
+        <a href="/diary/new" class="btn-create">글 생성</a>
+    </div>
+</header>
+
+<main>
+    <table>
+        <thead>
+        <tr>
+            <th>글번호</th>
+            <th>제목</th>
+            <th>작성자</th>
+            <th>작성일</th>
+            <th>보기</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="diary : ${diaryPage.content}">
+            <td th:text="${diary.id}"></td>
+            <td th:text="${diary.title}"></td>
+            <td th:text="${diary.username}"></td>
+            <td th:text="${diary.createdAt}"></td> <!-- 여기 수정 -->
+            <td>
+                <a th:href="@{/diary/{id}(id=${diary.id})}" class="btn-view">보기</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div class="pagination">
+        <a th:if="${diaryPage.hasPrevious()}"
+           th:href="@{/(page=${diaryPage.number - 1})}"
+           class="btn">이전</a>
+        <span th:text="${diaryPage.number + 1}"></span> / <span th:text="${diaryPage.totalPages}"></span>
+        <a th:if="${diaryPage.hasNext()}"
+           th:href="@{/(page=${diaryPage.number + 1})}"
+           class="btn">다음</a>
+    </div>
+</main>
+</body>
+</html>
