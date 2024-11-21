@@ -31,7 +31,6 @@
 
                     <!-- 댓글 수정 및 삭제 버튼 -->
                     <div th:if="${comment.username == currentUser.username}" class="comment-actions">
-                        <a th:href="@{/diary/{diaryId}/comment/{commentId}/edit(diaryId=${diary.id}, commentId=${comment.id})}" class="comment-edit">수정</a>
                         <a th:href="@{/diary/{diaryId}/comment/{commentId}/delete(diaryId=${diary.id}, commentId=${comment.id})}" class="comment-delete">삭제</a>
                     </div>
                 </div>
@@ -51,6 +50,8 @@
         <div class="actions">
             <a th:if="${diary.username == currentUser.username}"
                th:href="@{/diary/{id}/edit(id=${diary.id})}" class="btn-edit">수정</a>
+            <a th:if="${diary.username == currentUser.username}"
+               th:href="@{/diary/{id}/delete(id=${diary.id})}" class="btn-delete">삭제</a>
         </div>
     </div>
 </main>

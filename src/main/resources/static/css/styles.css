@@ -309,9 +309,12 @@ button:hover {
 .btn-edit:hover {
     background-color: #45a049; /* 수정 시 마우스 오버 효과 */
 }
+.comment-delete:hover{
+    background-color: #e53935; /* 삭제 시 마우스 오버 효과 */
+}
 
-/* 삭제 버튼 스타일 */
-.btn-delete {
+    /* 삭제 버튼 스타일 */
+.btn-delete, .comment-delete  {
     background-color: #f44336; /* 빨간색 */
     color: white;
 }
@@ -353,7 +356,7 @@ button:hover {
 }
 
 /* 삭제 버튼 스타일 */
-.delete {
+.delete{
     background-color: #f44336; /* 빨간색 */
     color: white;
 }
