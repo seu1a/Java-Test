@@ -21,7 +21,8 @@ public class MemberService {
                 null,
                 dto.getUsername(),
                 bCryptPasswordEncoder.encode(dto.getPassword()),
-                MemberType.USER
+                dto.getIsAdmin() ? MemberType.ADMIN : MemberType.USER,
+                dto.getNickname()
         );
 
         memberRepository.save(memberEntity);
