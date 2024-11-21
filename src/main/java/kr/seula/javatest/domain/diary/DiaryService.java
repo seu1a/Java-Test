@@ -3,13 +3,13 @@ package kr.seula.javatest.domain.diary;
 import kr.seula.javatest.domain.comment.dto.Comment;
 import kr.seula.javatest.domain.diary.dto.DiaryDto;
 import kr.seula.javatest.domain.member.MemberEntity;
+import kr.seula.javatest.domain.member.MemberType;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class DiaryService {
@@ -83,6 +83,11 @@ public class DiaryService {
     public void deleteDiary(Long id, MemberEntity currentUser) {
         Diary diary = diaryRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("일기를 찾을 수 없습니다."));
+
+        if (currentUser.getRole() == MemberType.ADMIN) {
+            diaryRepository.delete(diary);
+            return;
+        }
 
         // 작성자가 아니면 삭제할 수 없음
         if (!diary.getAuthor().equals(currentUser)) {

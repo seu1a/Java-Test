@@ -26,7 +26,7 @@ public class Diary {
     private String content;
 
     @ManyToOne
-    @JoinColumn(name = "author_id", nullable = false)
+    @JoinColumn(name = "member_id", nullable = false)
     private MemberEntity author;
 
     private LocalDateTime createdAt;

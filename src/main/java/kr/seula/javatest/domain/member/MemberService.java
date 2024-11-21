@@ -19,6 +19,8 @@ public class MemberService {
             throw new IllegalArgumentException(dto.getUsername() + " : 이미 존재하는 유저입니다.");
         }
 
+        System.out.println(bCryptPasswordEncoder.encode(dto.getPassword()));
+
         MemberEntity memberEntity = MemberEntity.of(
                 null,
                 dto.getUsername(),

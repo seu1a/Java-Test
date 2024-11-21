@@ -1,0 +1,1 @@
+INSERT INTO member_entity (id, username, password, role) VALUES (0, 'admin', '$2a$10$3DVujfFeizZfj9eLNOE5Ju6D45wWTU/CyY/m5VSFmGsYCZHjBrtU.', 'ADMIN');

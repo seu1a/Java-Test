@@ -5,6 +5,7 @@ import kr.seula.javatest.domain.diary.Diary;
 import kr.seula.javatest.domain.diary.DiaryRepository;
 import kr.seula.javatest.domain.member.MemberEntity;
 import kr.seula.javatest.domain.member.MemberService;
+import kr.seula.javatest.domain.member.MemberType;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -47,6 +48,11 @@ public class CommentService {
     public void deleteComment(Long commentId, MemberEntity currentUser) {
         Comment comment = commentRepository.findById(commentId)
                 .orElseThrow(() -> new IllegalArgumentException("댓글을 찾을 수 없습니다."));
+
+        if (currentUser.getRole() == MemberType.ADMIN) {
+            commentRepository.delete(comment);
+            return;
+        }
 
         // 댓글 작성자가 아니면 삭제할 수 없음
         if (!comment.getMember().equals(currentUser)) {
