@@ -15,9 +15,6 @@ public class MemberRegisterRequest {
     private String password;
 
     @NotEmpty
-    private String nickname;
-
-    @NotEmpty
     private Boolean isAdmin;
 
 }
