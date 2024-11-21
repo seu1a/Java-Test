@@ -20,8 +20,10 @@ public class MemberEntity {
     @Enumerated(EnumType.STRING)
     private MemberType role;
 
-    public static MemberEntity of(Long id, String username, String password, MemberType role) {
-        return new MemberEntity(id, username, password, role);
+    private String nickname;
+
+    public static MemberEntity of(Long id, String username, String password, MemberType role, String nickname) {
+        return new MemberEntity(id, username, password, role, nickname);
     }
 
 }
