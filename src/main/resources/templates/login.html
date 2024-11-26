@@ -50,6 +50,20 @@
         .form-container button:hover {
             background: #166acb;
         }
+
+        .register-link {
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        .register-link a {
+            color: #1881ea;
+            text-decoration: none;
+        }
+
+        .register-link a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -60,6 +74,11 @@
         <input type="password" name="password" placeholder="비밀번호를 입력하세요" required/>
         <button type="submit">로그인</button>
     </form>
+
+    <!-- 회원가입 페이지로 가는 링크 추가 -->
+    <div class="register-link">
+        <p>아직 계정이 없나요? <a href="/signup">회원가입</a></p>
+    </div>
 </div>
 </body>
 </html>
