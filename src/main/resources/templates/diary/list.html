@@ -8,7 +8,15 @@
 <header>
     <h1>일기 목록</h1>
     <div class="button-container">
-        <a href="/diary/new" class="btn-create">글 생성</a>
+        <a th:if="${#authentication.name != 'anonymousUser'}"
+           href="/diary/new"
+           class="btn-create">글 생성</a>
+        <a th:if="${#authentication.name == 'anonymousUser'}"
+           href="/login"
+           class="btn-create">로그인</a>
+        <a th:if="${#authentication.name == 'anonymousUser'}"
+           href="/signup"
+           class="btn-create">회원가입</a>
     </div>
 </header>
 

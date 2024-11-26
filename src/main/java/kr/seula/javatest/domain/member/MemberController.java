@@ -1,9 +1,7 @@
 package kr.seula.javatest.domain.member;
 
 import kr.seula.javatest.domain.member.dto.request.MemberRegisterRequest;
-import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,13 +13,19 @@ public class MemberController {
     private final MemberService memberService;
 
     @PostMapping("/register")
-    public ResponseEntity<?> createUser(MemberRegisterRequest dto) {
+    public String createUser(MemberRegisterRequest dto) {
         memberService.createUser(dto);
-        return ResponseEntity.ok("회원가입 완료");
+        return "redirect:/login"; // 기본 Spring Security 로그인 페이지로 리다이렉트
     }
 
     @GetMapping("/signup")
-    public String login() {
+    public String signup() {
         return "signup";
+    }
+
+
+    @GetMapping("/login")
+    public String login() {
+        return "login";
     }
 }
