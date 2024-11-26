@@ -33,8 +33,7 @@ public class MemberService {
 
     public MemberEntity getCurrentUser() {
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
-        return memberRepository.findByUsername(username)
-                .orElseThrow(() -> new UsernameNotFoundException("사용자를 찾을 수 없습니다: " + username));
+        return memberRepository.findByUsername(username);
     }
 
 }

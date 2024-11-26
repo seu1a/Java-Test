@@ -22,7 +22,7 @@
         <p th:text="${diary.content}">일기 내용</p>
 
         <!-- 댓글 목록 -->
-        <section class="comments">
+        <section class="comments" th:if="${#authentication.name != 'anonymousUser'}">
             <h3>댓글</h3>
             <div th:each="comment : ${diary.commentList}">
                 <div class="comment">
@@ -31,7 +31,7 @@
                     <p class="comment-time" th:text="${#temporals.format(comment.createdAt, 'yyyy-MM-dd HH:mm:ss')}"></p>
 
                     <!-- 댓글 수정 및 삭제 버튼 -->
-                    <div th:if="${comment.username == currentUser.username || currentUser.getRole().getName() == '관리자'}" class="comment-actions">
+                    <div th:if="${currentUser != null && comment.username == currentUser.username || currentUser.getRole().getName() == '관리자'}" class="comment-actions">
                         <a th:href="@{/diary/{diaryId}/comment/{commentId}/delete(diaryId=${diary.id}, commentId=${comment.id})}" class="comment-delete">삭제</a>
                     </div>
                 </div>
@@ -39,7 +39,7 @@
         </section>
 
         <!-- 댓글 작성 폼 -->
-        <section class="comment-form">
+        <section class="comment-form" th:if="${#authentication.name != 'anonymousUser'}">
             <h3>댓글 작성</h3>
             <form th:action="@{/diary/{id}/comment/create(id=${diary.id})}" method="post">
                 <textarea name="content" rows="4" required placeholder="댓글을 작성해주세요..."></textarea>
@@ -49,9 +49,9 @@
 
         <!-- 수정 및 삭제 버튼 (작성자만 가능) -->
         <div class="actions">
-            <a th:if="${diary.username == currentUser.username}"
+            <a th:if="${currentUser != null && (diary.username == currentUser.username)}"
                th:href="@{/diary/{id}/edit(id=${diary.id})}" class="btn-edit">수정</a>
-            <a th:if="${diary.username == currentUser.username || currentUser.getRole().getName() == '관리자'}"
+            <a th:if="${currentUser != null && (diary.username == currentUser.username || currentUser.getRole().getName() == '관리자')}"
                th:href="@{/diary/{id}/delete(id=${diary.id})}" class="btn-delete">삭제</a>
         </div>
     </div>
