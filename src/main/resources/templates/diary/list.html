@@ -26,15 +26,17 @@
         <tr>
             <th>글번호</th>
             <th>제목</th>
+            <th>본문</th>
             <th>작성자</th>
             <th>작성일</th>
-            <th>보기</th>
+            <th> (본문 + 댓글) 보기 </th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="diary : ${diaryPage.content}">
             <td th:text="${diary.id}"></td>
             <td th:text="${diary.title}"></td>
+            <td th:text="${diary.content}"></td>
             <td th:text="${diary.username}"></td>
             <td th:text="${diary.createdAt}"></td> <!-- 여기 수정 -->
             <td>

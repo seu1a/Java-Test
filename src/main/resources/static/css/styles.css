@@ -64,6 +64,8 @@ th {
 
 td {
     color: #495057;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 a.btn-view {
