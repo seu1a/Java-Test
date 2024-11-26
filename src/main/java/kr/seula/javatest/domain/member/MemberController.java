@@ -1,9 +1,11 @@
 package kr.seula.javatest.domain.member;
 
 import kr.seula.javatest.domain.member.dto.request.MemberRegisterRequest;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
@@ -18,4 +20,8 @@ public class MemberController {
         return ResponseEntity.ok("회원가입 완료");
     }
 
+    @GetMapping("/signup")
+    public String login() {
+        return "signup";
+    }
 }

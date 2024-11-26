@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>회원가입</title>
+    <style>
+        /* Reset 기본 스타일 */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f5f7fa;
+        }
+
+        .wrap {
+            width: 100%;
+            max-width: 480px;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+        }
+
+        .box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .input-wrap {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .input {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        label {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #555;
+        }
+
+        input[type="text"],
+        input[type="radio"] {
+            width: 100%;
+            padding: 0.8rem;
+            font-size: 1rem;
+            border: 1px solid #d1d9e6;
+            border-radius: 8px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus {
+            border-color: #1881ea;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 1rem;
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .radio-group label {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #ffffff;
+            cursor: pointer;
+            border: none;
+            border-radius: 8px;
+            background-color: #1881ea;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #166acb;
+        }
+
+        @media (max-width: 600px) {
+            .wrap {
+                width: 90%;
+                padding: 1.5rem;
+            }
+
+            .title {
+                font-size: 1.6rem;
+            }
+
+            .input-wrap {
+                gap: 1rem;
+            }
+
+            input[type="text"],
+            input[type="radio"] {
+                padding: 0.7rem;
+            }
+
+            .btn {
+                font-size: 1rem;
+                padding: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <!-- Thymeleaf 폼 사용 -->
+    <form
+            class="box"
+            th:action="@{/register}"
+            method="post"
+            >
+        <h2 class="title">회원가입</h2>
+        <div class="input-wrap">
+            <div class="input">
+                <label for="id">아이디</label>
+                <input
+                        type="text"
+                        name="username"
+                        id="id"
+                        placeholder="아이디를 입력하세요"/>
+            </div>
+            <div class="input">
+                <label for="pw">비밀번호</label>
+                <input
+                        type="text"
+                        name="password"
+                        id="pw"
+                        placeholder="비밀번호를 입력하세요"/>
+            </div>
+            <div class="input">
+                <label>관리자 여부</label>
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="isAdmin" value="true"/> O
+                    </label>
+                    <label>
+                        <input type="radio" name="isAdmin" value="false"/> X
+                    </label>
+                </div>
+            </div>
+        </div>
+        <input type="submit" value="회원가입하기" class="btn"/>
+    </form>
+</div>
+</body>
+</html>
